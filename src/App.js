@@ -4,6 +4,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import Navbar from './components/Navbar'
+import Home from "./components/Home";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -12,6 +13,7 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
+        <Route path="" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={token ? <Dashboard /> : <Navigate to="/login" />} />
